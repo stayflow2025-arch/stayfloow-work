@@ -1,0 +1,9 @@
+kind: AppHostingYaml
+version: v1
+
+runConfig:
+  maxInstances: 1
+
+setupConfig:
+  installConfig:
+    command: npm install --legacy-peer-deps
