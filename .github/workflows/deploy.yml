@@ -19,8 +19,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next + OpenNext
+      - name: Build Next.js
         run: npm run build
+
+      - name: Build OpenNext Cloudflare
+        run: npm run cloudflare:build
 
       - name: Publish to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
