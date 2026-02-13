@@ -3,6 +3,8 @@ main = ".open-next/worker.js"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
+account_id = "c8a920d4dbe518c6fa3909be7a34459b"
+
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"
