@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers
+name: Deploy to Cloudflare
 
 on:
   push:
@@ -8,10 +8,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Install Node
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -19,13 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next.js
-        run: npm run build
+      - name: Build OpenNext
+        run: npx @opennextjs/cloudflare build
 
-      - name: Build OpenNext Cloudflare
-        run: npm run cloudflare:build
-
-      - name: Publish to Cloudflare Workers
+      - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: c8a920d4dbe518c6fa3909be7a34459b
+          command: deploy --env=""
