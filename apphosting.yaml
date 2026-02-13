@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 kind: AppHostingYaml
 version: v1
 
@@ -7,3 +8,11 @@ runConfig:
 setupConfig:
   installConfig:
     command: npm install --legacy-peer-deps
+=======
+kind: "AppStack"
+customerSettings: []
+runConfig:
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+>>>>>>> a566658eb3d25c97b7959b38f03aded04dba79b2
